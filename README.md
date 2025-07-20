@@ -7,7 +7,8 @@ A Visual Studio Code extension that analyzes and displays license information fo
 
 > **⚠️ Beta Notice**: This extension is currently in beta. Always validate license information independently and use at your own risk. This tool provides guidance but should not be the sole source for legal compliance decisions.
 
-![Overview](./docs/images/tree-view.png)
+<img width="444" alt="tree-view" src="https://github.com/user-attachments/assets/435f0370-b400-4125-bc73-ee6b90a04183" />
+
 
 ## 🚀 Key Features
 
@@ -26,7 +27,8 @@ Automatically detects and analyzes dependencies across several programming langu
 
 ### Interactive dashboard
 
-![Report dashboard](./docs/images/report-dashboard.png)
+<img width="444" alt="report-dashboard" src="https://github.com/user-attachments/assets/fa96e9fa-f5c0-496a-88dc-0fe48ee1ca0b" />
+
 
 - **Realtime statistics**: Project count, dependency totals, license distribution
 - **Clean styling**: Clean, VS Code-themed interface
@@ -34,7 +36,7 @@ Automatically detects and analyzes dependencies across several programming langu
 
 ### Smart tree view
 
-![Tree view](./docs/images/tree-view.png)
+<img width="444" alt="tree-view" src="https://github.com/user-attachments/assets/435f0370-b400-4125-bc73-ee6b90a04183" />
 
 - **Simple organization mode**: Projects → Dependencies → License info
 - **Interactive elements**: Click dependencies for detailed information
@@ -42,7 +44,8 @@ Automatically detects and analyzes dependencies across several programming langu
 
 ### License compatibility analysis
 
-![License matrix](./docs/images/compatibility-matrix.png)
+<img width="444" alt="compatibility-matrix" src="https://github.com/user-attachments/assets/12ed64e1-ab1a-4762-9556-35f96f25e232" />
+
 
 - **Smart risk assessment**: Automatic risk level calculation (Low/Medium/High)
 - **Visual compatibility matrix**: Interactive grid showing license interactions
@@ -63,7 +66,8 @@ Automatically detects and analyzes dependencies across several programming langu
 
 ## Caching & Performance
 
-![Cache overview](./docs/images/cache-overview.png)
+<img width="444" alt="cache-overview" src="https://github.com/user-attachments/assets/59c71940-7e10-4f3e-88df-ccee9a2dcb62" />
+
 
 - **Smart caching**: Configurable cache duration (default: 24 hours)
 - **Performance optimization**: Reduces API calls and improves response times
