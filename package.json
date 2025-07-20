@@ -22,15 +22,7 @@
 		"dependencies",
 		"compliance",
 		"legal",
-		"npm",
-		"nuget",
-		"cargo",
-		"go modules",
-		"python",
-		"typescript",
-		"csharp",
-		"rust",
-		"go"
+		"license checker"
 	],
 	"preview": true,
 	"engines": {
