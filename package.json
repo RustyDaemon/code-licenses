@@ -1,0 +1,296 @@
+{
+	"name": "code-licenses",
+	"displayName": "Code Licenses",
+	"description": "Analyze and display license information for project dependencies across multiple languages",
+	"version": "0.1.0",
+	"publisher": "RustyDaemon",
+	"author": {
+		"name": "RustyDaemon"
+	},
+	"icon": "code-licenses.png",
+	"license": "MIT",
+	"homepage": "https://github.com/RustyDaemon/code-licenses",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/RustyDaemon/code-licenses.git"
+	},
+	"bugs": {
+		"url": "https://github.com/RustyDaemon/code-licenses/issues"
+	},
+	"keywords": [
+		"license",
+		"dependencies",
+		"compliance",
+		"legal",
+		"npm",
+		"nuget",
+		"cargo",
+		"go modules",
+		"python",
+		"typescript",
+		"csharp",
+		"rust",
+		"go"
+	],
+	"preview": true,
+	"engines": {
+		"vscode": "^1.102.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [],
+	"main": "./dist/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "code-licenses.scanLicenses",
+				"title": "Scan Project Licenses",
+				"category": "Code Licenses",
+				"icon": "$(law)"
+			},
+			{
+				"command": "code-licenses.refreshLicenses",
+				"title": "Refresh License Information",
+				"category": "Code Licenses",
+				"icon": "$(refresh)"
+			},
+			{
+				"command": "code-licenses.exportLicenses",
+				"title": "Export License Report",
+				"category": "Code Licenses",
+				"icon": "$(save-as)"
+			},
+			{
+				"command": "code-licenses.openReportViewer",
+				"title": "Open License Report Viewer",
+				"category": "Code Licenses",
+				"icon": "$(graph)"
+			},
+			{
+				"command": "code-licenses.showCompatibilityMatrix",
+				"title": "Show License Compatibility Matrix",
+				"category": "Code Licenses",
+				"icon": "$(table)"
+			},
+			{
+				"command": "code-licenses.showLicenseText",
+				"title": "View License Text",
+				"category": "Code Licenses",
+				"icon": "$(book)"
+			},
+			{
+				"command": "code-licenses.openSettings",
+				"title": "Open Code Licenses Settings",
+				"category": "Code Licenses",
+				"icon": "$(settings-gear)"
+			},
+			{
+				"command": "code-licenses.showCacheOverview",
+				"title": "Show Cache Overview",
+				"category": "Code Licenses",
+				"icon": "$(database)"
+			},
+			{
+				"command": "code-licenses.showDependencyInfo",
+				"title": "Show Dependency Information",
+				"category": "Code Licenses",
+				"icon": "$(package)"
+			},
+			{
+				"command": "code-licenses.clearCache",
+				"title": "Clear License Cache",
+				"category": "Code Licenses",
+				"icon": "$(clear-all)"
+			}
+		],
+		"views": {
+			"codeLicensesContainer": [
+				{
+					"id": "codeLicensesView",
+					"name": "Dependencies",
+					"when": "workspaceFolderCount > 0",
+					"icon": "$(law)",
+					"contextualTitle": "Project Dependencies"
+				}
+			]
+		},
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "codeLicensesContainer",
+					"title": "Code Licenses",
+					"icon": "$(law)"
+				}
+			]
+		},
+		"menus": {
+			"view/title": [
+				{
+					"command": "code-licenses.refreshLicenses",
+					"when": "view == codeLicensesView",
+					"group": "navigation@3"
+				},
+				{
+					"command": "code-licenses.openReportViewer",
+					"when": "view == codeLicensesView",
+					"group": "navigation@4"
+				},
+				{
+					"command": "code-licenses.exportLicenses",
+					"when": "view == codeLicensesView",
+					"group": "navigation@5"
+				},
+				{
+					"command": "code-licenses.showCompatibilityMatrix",
+					"when": "view == codeLicensesView",
+					"group": "navigation@6"
+				},
+				{
+					"command": "code-licenses.openSettings",
+					"when": "view == codeLicensesView",
+					"group": "navigation@7"
+				},
+				{
+					"command": "code-licenses.showCacheOverview",
+					"when": "view == codeLicensesView",
+					"group": "cache@1"
+				},
+				{
+					"command": "code-licenses.clearCache",
+					"when": "view == codeLicensesView",
+					"group": "cache@2"
+				}
+			],
+			"view/item/context": [
+				{
+					"command": "code-licenses.showLicenseText",
+					"when": "view == codeLicensesView && viewItem == license"
+				}
+			],
+			"commandPalette": [
+				{
+					"command": "code-licenses.scanLicenses",
+					"when": "workspaceFolderCount > 0"
+				},
+				{
+					"command": "code-licenses.refreshLicenses",
+					"when": "workspaceFolderCount > 0"
+				},
+				{
+					"command": "code-licenses.exportLicenses",
+					"when": "workspaceFolderCount > 0"
+				},
+				{
+					"command": "code-licenses.openReportViewer",
+					"when": "workspaceFolderCount > 0"
+				},
+				{
+					"command": "code-licenses.showCompatibilityMatrix",
+					"when": "workspaceFolderCount > 0"
+				},
+				{
+					"command": "code-licenses.showLicenseText",
+					"when": "workspaceFolderCount > 0"
+				}
+			]
+		},
+		"configuration": {
+			"title": "Code Licenses",
+			"properties": {
+				"codeLicenses.cache.enabled": {
+					"type": "boolean",
+					"default": true,
+					"description": "Enable caching of license information to improve performance"
+				},
+				"codeLicenses.cache.maxAge": {
+					"type": "number",
+					"default": 24,
+					"description": "Maximum age for cached license information in hours (default: 24 hours)"
+				},
+				"codeLicenses.cache.maxSize": {
+					"type": "number",
+					"default": 1000,
+					"description": "Maximum number of entries in the license cache"
+				},
+				"codeLicenses.compatibility.showWarnings": {
+					"type": "boolean",
+					"default": true,
+					"description": "Show warnings when license compatibility issues are detected"
+				},
+				"codeLicenses.compatibility.strictMode": {
+					"type": "boolean",
+					"default": false,
+					"description": "Enable strict mode for license compatibility checking"
+				},
+				"codeLicenses.fetching.timeout": {
+					"type": "number",
+					"default": 5000,
+					"description": "Timeout for fetching license information in milliseconds"
+				},
+				"codeLicenses.fetching.retryAttempts": {
+					"type": "number",
+					"default": 3,
+					"description": "Number of retry attempts for failed license fetches"
+				},
+				"codeLicenses.display.groupByLicense": {
+					"type": "boolean",
+					"default": true,
+					"description": "Group dependencies by license type in the tree view"
+				},
+				"codeLicenses.display.showDescriptions": {
+					"type": "boolean",
+					"default": true,
+					"description": "Show package descriptions in the dependency view"
+				},
+				"codeLicenses.display.highlightProblematic": {
+					"type": "boolean",
+					"default": true,
+					"description": "Highlight potentially problematic licenses (GPL, AGPL) in the UI"
+				},
+				"codeLicenses.display.dateFormat": {
+					"type": "string",
+					"enum": [
+						"international",
+						"us"
+					],
+					"default": "international",
+					"description": "Date format to use throughout the extension",
+					"enumDescriptions": [
+						"International format: '17 July 2025, 18:22'",
+						"US format: 'July 17, 2025, 6:22 PM'"
+					]
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run package",
+		"compile": "webpack",
+		"watch": "webpack --watch",
+		"package": "webpack --mode production --devtool hidden-source-map",
+		"compile-tests": "tsc -p . --outDir out",
+		"watch-tests": "tsc -p . -w --outDir out",
+		"pretest": "npm run compile-tests && npm run compile && npm run lint",
+		"lint": "eslint src",
+		"test": "vscode-test"
+	},
+	"devDependencies": {
+		"@types/mocha": "^10.0.10",
+		"@types/node": "20.x",
+		"@types/vscode": "^1.102.0",
+		"@types/xml2js": "^0.4.14",
+		"@typescript-eslint/eslint-plugin": "^8.37.0",
+		"@typescript-eslint/parser": "^8.37.0",
+		"@vscode/test-cli": "^0.0.11",
+		"@vscode/test-electron": "^2.5.2",
+		"eslint": "^9.31.0",
+		"ts-loader": "^9.5.2",
+		"typescript": "^5.8.3",
+		"webpack": "^5.100.2",
+		"webpack-cli": "^6.0.1"
+	},
+	"dependencies": {
+		"xml2js": "^0.6.2"
+	}
+}
