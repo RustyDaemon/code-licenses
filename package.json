@@ -2,7 +2,7 @@
 	"name": "code-licenses",
 	"displayName": "Code Licenses",
 	"description": "Analyze and display license information for project dependencies across multiple languages",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"publisher": "RustyDaemon",
 	"author": {
 		"name": "RustyDaemon"
